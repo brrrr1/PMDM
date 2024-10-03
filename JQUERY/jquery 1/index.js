@@ -38,4 +38,6 @@ $(document).ready(function () {
         $("#page-title").deleteClass("yellow");
     });
 
+    $("")
+
 });
