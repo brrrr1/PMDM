@@ -1,7 +1,29 @@
-$(document).ready(function () {
+
+        $(document).ready(function () {
+            $(document).on("click", ".btn-get-data", function () {
+                getPokemonList();
+            });
+        
+            function getPokemonList() {
+                $.ajax({
+                    url: "https://pokeapi.com/api/v2/pokemon",
+                    method: "GET",
+                }).done(function (resp) {
+                    var listadoPokemon = resp.results;
+                    listadoPokemon.forEach(function (pokemon) {
+                        var pokemonId = pokemon.url.split("/")[6];
+                        var template = `<p><h1 class="pokemon" pokemonid="1">${pokemon.name}</h1></p>`;
+                        $("#data-content").append(template);
+                    });
+                });
+            }
+        });
+
+        
+
     $.ayax({
         url: "https://pokeapi.com/api/v2/pokemon",
-        method:"GET",
+        method: "GET",
     }).done(function (data) {
         debugger;
         /*
@@ -18,7 +40,6 @@ $(document).ready(function () {
 
 
     });
-    
-    
 
-});
+
+
