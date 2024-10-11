@@ -10,7 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class HomeComponent implements OnInit {
 showInfoDialog() {
-  alert('No hay más info para ti');
+  alert('No hay más info para ti ${this.nombre}');
 throw new Error('Method not implemented.');
 }
 
