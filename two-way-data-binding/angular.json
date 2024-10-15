@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "02databinding": {
+    "two-way-data-binding": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/02databinding",
+            "outputPath": "dist/two-way-data-binding",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -28,8 +38,8 @@
               }
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "@angular/material/prebuilt-themes/cyan-orange.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -62,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "02databinding:build:production"
+              "buildTarget": "two-way-data-binding:build:production"
             },
             "development": {
-              "buildTarget": "02databinding:build:development"
+              "buildTarget": "two-way-data-binding:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,6 +109,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "4ea87ae7-805a-4aa6-95a8-97b26c0f2aad"
   }
 }
