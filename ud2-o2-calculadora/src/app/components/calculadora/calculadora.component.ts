@@ -40,8 +40,6 @@ export class CalculadoraComponent {
       this.resultado = (this.num1 - this.num2);
       this.restarpulsado = false;
     }
-
-
   }
 
   limpiar() {
