@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 export interface Student {
-
   numeroAlumno: number;
   nombre: string;
   apellidos: string;
@@ -10,11 +11,6 @@ export interface Student {
   edad: number;
   cursoMatriculado: string;
 }
-
-
-
-
-
 
 
 const ELEMENT_DATA: Student[] = [
@@ -30,22 +26,36 @@ const ELEMENT_DATA: Student[] = [
   { numeroAlumno: 10, nombre: 'Marta', apellidos: 'Torres', nif: '01234567J', edad: 29, cursoMatriculado: 'Música' },
 ];
 
-/**
- * @title Basic use of `<table mat-table>`
- */
+
 @Component({
   selector: 'app-tabla',
   templateUrl: './tabla.component.html',
-  styleUrl: './tabla.component.css',
+  styleUrls: ['./tabla.component.css'],
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatCheckboxModule],
 })
-
-
-export class TableComponent {
+export class TablaComponent {
   displayedColumns: string[] = ['numeroAlumno', 'nombre', 'apellidos', 'nif', 'edad', 'cursoMatriculado'];
+  allColumns: string[] = ['numeroAlumno', 'nombre', 'apellidos', 'nif', 'edad', 'cursoMatriculado'];
   dataSource = ELEMENT_DATA;
+
+
+  setAll(column: string, checked: boolean) {
+    if (checked) {
+      if (this.displayedColumns.indexOf(column) === -1) {
+        this.displayedColumns.push(column);
+      }
+    } else {
+      const index = this.displayedColumns.indexOf(column);
+      if (index !== -1) {
+        this.displayedColumns.splice(index, 1);
+      }
+    }
+  }
 }
+
+
+
 
 
 

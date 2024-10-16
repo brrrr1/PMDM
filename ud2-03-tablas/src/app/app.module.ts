@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { TableComponent } from "./components/tabla/tabla.component";
+import { TablaComponent } from "./components/tabla/tabla.component";
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { TableComponent } from "./components/tabla/tabla.component";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TableComponent
+    TablaComponent
 ],
   providers: [
     provideAnimationsAsync()
