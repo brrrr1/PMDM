@@ -1,3 +1,3 @@
-<input type="number" [(ngModel)]="value" class="form-control mt-3" placeholder="Introduce el valor" /> 
+<input type="number" max=100 min=0 [(ngModel)]="value" class="form-control mt-3" placeholder="Introduce el valor" /> 
 
-<app-progress-bar></app-progress-bar>
+<app-progress-bar [value]="value"></app-progress-bar>

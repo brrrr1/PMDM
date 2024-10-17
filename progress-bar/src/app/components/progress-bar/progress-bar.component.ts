@@ -10,15 +10,15 @@ export class ProgressBarComponent {
   @Input() value: number = 20;
   @Input() color: string = '';
 
-  cambiarColor(value: number): string {
-    if (value < 50) {
-      return this.color = 'danger';
-    } else if(value < 70) {
-      return this.color = 'warning';
-    } else if (value < 90) {
-      return this.color = 'info';
+  cambiarColor(): string {
+    if (this.value < 50) {
+      return 'danger';
+    } else if(this.value < 70) {
+      return 'warning';
+    } else if (this.value < 90) {
+      return 'info';
     } else {
-      return this.color = 'success';
+      return 'success';
     }
 
 }
