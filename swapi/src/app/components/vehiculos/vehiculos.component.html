@@ -1,0 +1,24 @@
+<div class="vehicle-card">
+    @for(item of listadoVehiculos; track item.name){
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ item.name }}</h2>
+            <h4>{{ item.model }}</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>Manufacturer:</strong> {{ item.manufacturer }}</p>
+            <p><strong>Vehicle Class:</strong> {{ item.vehicle_class }}</p>
+            <p><strong>Cargo Capacity:</strong> {{ item.cargo_capacity }}</p>
+            <p><strong>Consumables:</strong> {{ item.consumables }}</p>
+            <p><strong>Cost in Credits:</strong> {{ item.cost_in_credits }}</p>
+            <p><strong>Crew:</strong> {{ item.crew }}</p>
+            <p><strong>Length:</strong> {{ item.length }}</p>
+            <p><strong>Max Atmosphering Speed:</strong> {{ item.max_atmosphering_speed }}</p>
+            <p><strong>Passengers:</strong> {{ item.passengers }}</p>
+            <p><strong>Created:</strong> {{ item.created }}</p>
+            <p><strong>Edited:</strong> {{ item.edited }}</p>
+            <p><strong>URL:</strong> <a [href]="item.url">{{ item.url }}</a></p>
+        </div>
+    </div>
+    }
+</div>
