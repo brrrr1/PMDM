@@ -12,6 +12,6 @@ export class VehiculosService {
   constructor(private http: HttpClient) { }
 
   getVehiculos(): Observable<vehiculos[]> {
-    return this.http.get<vehiculos[]>('https://swapi.dev/api/vehicles/');
+    return this.http.get<vehiculos[]>('http://localhost:3000/vehiculos');
   }
 }
