@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Vehiculos, VehiculosResponse } from '../interfaces/vehiculos.interfaces';
+import { VehiculosResponse } from '../models/vehiculos.interfaces';
 
 @Injectable({
   providedIn: 'root'
