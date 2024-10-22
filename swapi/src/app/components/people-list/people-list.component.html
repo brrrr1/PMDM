@@ -6,6 +6,7 @@
             <h4>{{ item.gender }}</h4>
         </div>
         <div class="card-body">
+            <img [src]="generatePeoplePhoto(item.url)" alt="{{ item.name }}" />
             <p><strong>Height:</strong> {{ item.height }}</p>
             <p><strong>Mass:</strong> {{ item.mass }}</p>
             <p><strong>Hair Color:</strong> {{ item.hair_color }}</p>

@@ -6,6 +6,7 @@
             <h4>{{ item.model }}</h4>
         </div>
         <div class="card-body">
+            <img [src]="generateVehiclePhoto(item.url)" alt="{{ item.name }}" />
             <p><strong>Manufacturer:</strong> {{ item.manufacturer }}</p>
             <p><strong>Vehicle Class:</strong> {{ item.vehicle_class }}</p>
             <p><strong>Cargo Capacity:</strong> {{ item.cargo_capacity }}</p>
