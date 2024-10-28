@@ -19,4 +19,9 @@ listadoVehiculos: Vehiculos[] = [];
     });
   }
 
+  generateVehiclePhoto(url: string): string {
+    const id = url.split('/').filter(segment => segment).pop();
+    return `https://starwars-visualguide.com/assets/img/vehicles/${id}.jpg`;
+  }
+
 }
