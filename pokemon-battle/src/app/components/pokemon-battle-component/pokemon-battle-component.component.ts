@@ -13,6 +13,9 @@ import { PokemonService } from '../../services/pokemon.service';
 
 export class PokemonBattleComponentComponent implements OnInit {
 
+
+  id1: number = 0;
+  id2: number = 0;
   listadoPokemon: PokemonList[] = [];
 
   constructor(private pokemonService: PokemonService) { }
@@ -23,7 +26,15 @@ export class PokemonBattleComponentComponent implements OnInit {
     });
   }
 
-
+  atacar() {
+    // Assuming you have a progress bar element for the Pokemon
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+      const currentValue = parseFloat(progressBar.getAttribute('value') || '100');
+      const newValue = Math.max(0, currentValue - 25); // Reduce value by 25, but not below 0
+      progressBar.setAttribute('value', newValue.toString());
+    }
+  }
 
 
 }

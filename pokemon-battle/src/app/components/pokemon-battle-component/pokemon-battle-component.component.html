@@ -1,7 +1,15 @@
 @for (pokemon of listadoPokemon.slice(0, 2); track pokemon.name) {
 
 <h2>{{ pokemon.name }}</h2>
-<button >Atacar</button>
+
+
+<p>URL: {{ pokemon.url }}</p>
+<div class="progress">
+  <div id="progress-bar" class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+</div>
+
+<button class="btn btn-primary" (click)="atacar()">Atacar</button>
 
 
 }
+
