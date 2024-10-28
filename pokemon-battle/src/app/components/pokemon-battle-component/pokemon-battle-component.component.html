@@ -1,15 +1,32 @@
-@for (pokemon of listadoPokemon.slice(0, 2); track pokemon.name) {
-
-<h2>{{ pokemon.name }}</h2>
-
-
-<p>URL: {{ pokemon.url }}</p>
-<div class="progress">
-  <div id="progress-bar" class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+@for (pokemon of selectedPokemon; track pokemon.name) {
+<div class="d-flex justify-content-center">
+  <div class="card mb-3" style="max-width: 500px; width: 500px;">
+    <div class="row g-0">
+      <div class="col-md-4" style="width: 150px;">
+        <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' 
+                             + pokemon.url.split('/')[pokemon.url.split('/').length - 2] + '.png'"
+          class="card-img-left img-fluid rounded-start">
+      </div>
+      <div class="col-md-8" style="width: 350px;">
+        <div class="card-body">
+          <h2 class="card-title">{{ pokemon.name }}</h2>
+          <div class="progress">
+            <div id="progress-bar" class="progress-bar bg-success" role="progressbar"
+              [style.width.%]="progress[selectedPokemon.indexOf(pokemon)]"
+              [attr.aria-valuenow]="progress[selectedPokemon.indexOf(pokemon)]" aria-valuemin="0" aria-valuemax="100">
+              {{ progress[selectedPokemon.indexOf(pokemon)] }}%
+            </div>
+          </div>
+          <button class="btn btn-primary mt-3" (click)="atacar(selectedPokemon.indexOf(pokemon))"
+            [disabled]="(turno1 && pokemon.name !== selectedPokemon[0].name) || (!turno1 && pokemon.name !== selectedPokemon[1].name)">
+            Atacar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<button class="btn btn-primary" (click)="atacar()">Atacar</button>
-
-
 }
-
+<div *ngIf="mensajeGanador" class="alert alert-success">
+  {{ mensajeGanador }}
+</div>
