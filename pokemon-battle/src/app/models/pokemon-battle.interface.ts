@@ -6,6 +6,7 @@ export interface PokemonBattleResponse {
   }
   
   export interface PokemonList {
+    hp: number
     name: string
     url: string
   }

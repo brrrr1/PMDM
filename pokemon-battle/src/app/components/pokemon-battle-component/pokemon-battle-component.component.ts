@@ -12,6 +12,7 @@ import { PokemonService } from '../../services/pokemon.service';
 })
 
 export class PokemonBattleComponentComponent implements OnInit {
+
   listadoPokemon: PokemonList[] = [];
 
   constructor(private pokemonService: PokemonService) { }
@@ -21,6 +22,8 @@ export class PokemonBattleComponentComponent implements OnInit {
       this.listadoPokemon = response.results;
     });
   }
+
+
 
 
 }
