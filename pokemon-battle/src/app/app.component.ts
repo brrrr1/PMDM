@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +7,4 @@ import { AnimationOptions } from 'ngx-lottie';
 })
 export class AppComponent {
   title = 'pokemon-battle';
-  options: AnimationOptions = {
-    path: '/assets/animation.json',
-}
-
 }

@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PokemonBattleComponentComponent } from './pages/pokemon-battle-component/pokemon-battle-component.component';
-
+import { BattleComponent } from './pages/battle/battle.component';
 
 const routes: Routes = [
-  { path: 'battle', component: PokemonBattleComponentComponent },
+  { path: 'battle', component: BattleComponent },
   { path: '', redirectTo: '/battle', pathMatch: 'full' },
 ];
 
