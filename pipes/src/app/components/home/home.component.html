@@ -1,0 +1,37 @@
+<h1> Sin pipe: {{ titulo }} </h1>
+
+<h1> Con lowercase: {{ titulo | lowercase }} </h1>
+
+<h1> Con uppercase: {{ titulo | uppercase }} </h1>
+
+<h1> Con titlecase: {{ titulo | titlecase }}</h1>
+
+<hr />
+
+<h1> Pipe currency standard: {{precio | currency}}</h1>
+
+<h1> Pipe currency 'EUR': {{precio | currency:'EUR'}}</h1>
+
+<h1> Pipe currency: {{precio | currency:'EUR' : 'Euros'}}</h1>
+
+<hr />
+
+<h1> Date pipe: {{createdAt | date }}</h1>
+
+<h1> Date pipe: {{createdAt | date:'shortDate' }}</h1>
+
+<hr />
+
+<h1> Porcentaje: {{porcentajeVida | percent}}</h1>
+
+<hr />
+
+<h1> Custom pipe: {{precio | customEur}}</h1>
+
+<h1> Custom pipe en el ts del componente: {{customEurValue}}</h1>
+
+
+
+
+
+
