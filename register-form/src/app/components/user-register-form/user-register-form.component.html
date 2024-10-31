@@ -1,0 +1,88 @@
+<div class="container-fluid" style="width: 400px">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">Add new USER</h1>
+        </div>
+    </div>
+    <div [hidden]="submitted">
+        <form action="" method="post" (ngSubmit)="addUser()" #userForm="ngForm">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="name" class="form-label">Nombre *</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required
+                        [(ngModel)]="user.nombre" />
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="surname" class="form-label">Apellidos *</label>
+                    <input type="text" class="form-control" id="surname" name="surname" placeholder="Apellidos" required
+                        [(ngModel)]="user.apellidos" />
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="nif" class="form-label">NIF *</label>
+                    <input type="text" class="form-control" id="nif" name="nif" placeholder="NIF" required
+                        [(ngModel)]="user.nif" />
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="email" class="form-label">Email *</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required
+                        [(ngModel)]="user.email" />
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="phone" class="form-label">Teléfono *</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono" required
+                        [(ngModel)]="user.telefono" />
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="gender" class="form-label">Sexo *</label>
+                    <select class="form-select" name="gender" id="gender" required [(ngModel)]="user.sexo">
+                        <option value="" selected="selected">-Seleccione uno-</option>
+                        @for(sexo of sexOptions; track sexo){
+                        <option [value]="sexo">{{sexo}}</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="source" class="form-label">¿Cómo conoció la página? *</label>
+                    <select class="form-select" name="source" id="source" required [(ngModel)]="user.comoConocio">
+                        <option value="" selected="selected">-Seleccione uno-</option>
+                        @for(comoConocio of comoConocioOptions; track comoConocio){
+                        <option [value]="comoConocio">{{comoConocio}}</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="password" class="form-label">Contraseña *</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña"
+                        required [(ngModel)]="user.contrasena" />
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="confirmPassword" class="form-label">Confirmar contraseña *</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                        placeholder="Confirmar contraseña" required [(ngModel)]="user.confirmarContrasena" />
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="terms" name="terms" required
+                            [(ngModel)]="user.aceptaTerminos" />
+                        <label class="form-check-label" for="terms">
+                            Acepto los términos y condiciones del registro *
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" style="width: 100%"
+                        [disabled]="!userForm.form.valid">
+                        Crear estudiante
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row" [hidden]="!submitted">
+        <div class="col-12">
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <div>Formulario enviado</div>
+            </div>
+        </div>
+    </div>
+</div>
