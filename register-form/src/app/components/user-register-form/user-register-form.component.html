@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-12 mb-3">
                     <label for="nif" class="form-label">NIF *</label>
-                    <input type="text" class="form-control" id="nif" name="nif" placeholder="NIF" required
+                    <input type="number" class="form-control" id="nif" name="nif" placeholder="NIF" required
                         [(ngModel)]="user.nif" />
                 </div>
                 <div class="col-12 mb-3">
@@ -58,7 +58,10 @@
                 <div class="col-12 mb-3">
                     <label for="confirmPassword" class="form-label">Confirmar contraseña *</label>
                     <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-                        placeholder="Confirmar contraseña" required [(ngModel)]="user.confirmarContrasena" />
+                        placeholder="Confirmar contraseña" required [(ngModel)]="confirmPassword" />
+                    <div *ngIf="!validatePasswords() && confirmPassword" class="text-danger">
+                        Las contraseñas no coinciden.
+                    </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="form-check">

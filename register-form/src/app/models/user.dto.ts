@@ -1,6 +1,5 @@
 export class UserDto{
 
-
     constructor(
         public nombre: string,
         public apellidos: string,

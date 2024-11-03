@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserRegisterFormComponent } from './components/user-register-form/user-register-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DniPipe } from './pipes/dni.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserRegisterFormComponent
+    UserRegisterFormComponent,
+    DniPipe
   ],
   imports: [
     BrowserModule,
