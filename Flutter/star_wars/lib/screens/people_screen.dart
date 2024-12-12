@@ -30,12 +30,12 @@ class _PeopleScreenState extends State<PeopleScreen> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return _buildPeopleImage(
-                snapshot.data!); // Cambiado a _buildPeopleImage
+                snapshot.data!); 
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
 
-          // By default, show a loading spinner.
+
           return const Center(child: CircularProgressIndicator());
         },
       ),
@@ -75,17 +75,17 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                elevation: 5, // Añadir sombra
+                elevation: 5,
                 child: SizedBox(
-                  width: 320, // Ancho ajustado
-                  height: 200, // Altura ajustada
+                  width: 320, 
+                  height: 200, 
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: ClipRRect(
                           borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(15.0)),
+                              const BorderRadius.vertical(top: Radius.circular(15.0)),
                           child: Image.network(
                             'https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg',
                             fit: BoxFit.cover,
@@ -119,7 +119,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
           ),
         ),
         SizedBox(
-          height: 100, // Altura ajustada
+          height: 100, 
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: peopleResponse.results!.length,
@@ -129,17 +129,17 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius:
-                        BorderRadius.circular(15.0), // Bordes redondeados
+                        BorderRadius.circular(15.0), 
                   ),
-                  elevation: 5, // Añadir sombra
+                  elevation: 5, 
                   child: ClipRRect(
                     borderRadius:
-                        BorderRadius.circular(15.0), // Bordes redondeados
+                        BorderRadius.circular(15.0), 
                     child: Image.network(
                       'https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg',
                       fit: BoxFit.cover,
-                      width: 100, // Ancho ajustado
-                      height: 100, // Altura ajustada
+                      width: 100, 
+                      height: 100, 
                     ),
                   ),
                 ),
