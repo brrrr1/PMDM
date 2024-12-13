@@ -1,7 +1,11 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:star_wars/models/people_list_response/People.dart';
 import 'package:star_wars/models/people_list_response/people_list_response.dart';
+import 'package:star_wars/screens/person_screen.dart';
 
 class PeopleScreen extends StatefulWidget {
   const PeopleScreen({super.key});
@@ -29,12 +33,10 @@ class _PeopleScreenState extends State<PeopleScreen> {
         future: peopleResponse,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return _buildPeopleImage(
-                snapshot.data!); 
+            return _buildPeopleImage(snapshot.data!);
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-
 
           return const Center(child: CircularProgressIndicator());
         },
@@ -62,6 +64,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
 
   Widget _buildPeopleImage(PeopleListResponse peopleResponse) {
     return Column(
+      
       children: [
         Expanded(
           child: ListView.builder(
@@ -76,42 +79,51 @@ class _PeopleScreenState extends State<PeopleScreen> {
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 elevation: 5,
-                child: SizedBox(
-                  width: 320, 
-                  height: 200, 
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: ClipRRect(
-                          borderRadius:
-                              const BorderRadius.vertical(top: Radius.circular(15.0)),
-                          child: Image.network(
-                            'https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg',
-                            fit: BoxFit.cover,
-                            width: double.infinity,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => PersonScreen(peopleItem: person),
+                      ),
+                    );
+                  },
+                  child: SizedBox(
+                    width: 320,
+                    height: 200,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(15.0)),
+                            child: Image.network(
+                              'https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg',
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          person.name!,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            person.name!,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text('Height: ${person.height}'),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text('Mass: ${person.mass}'),
-                      ),
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Text('Height: ${person.height}'),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Text('Mass: ${person.mass}'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               );
@@ -119,7 +131,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
           ),
         ),
         SizedBox(
-          height: 100, 
+          height: 100,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: peopleResponse.results!.length,
@@ -128,18 +140,16 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(15.0), 
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
-                  elevation: 5, 
+                  elevation: 5,
                   child: ClipRRect(
-                    borderRadius:
-                        BorderRadius.circular(15.0), 
+                    borderRadius: BorderRadius.circular(15.0),
                     child: Image.network(
                       'https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg',
                       fit: BoxFit.cover,
-                      width: 100, 
-                      height: 100, 
+                      width: 100,
+                      height: 100,
                     ),
                   ),
                 ),
