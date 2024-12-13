@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:star_wars/models/people_list_response/People.dart';
 import 'package:star_wars/models/people_list_response/people_list_response.dart';
 import 'package:star_wars/screens/person_screen.dart';
 
@@ -97,10 +96,13 @@ class _PeopleScreenState extends State<PeopleScreen> {
                           child: ClipRRect(
                             borderRadius: const BorderRadius.vertical(
                                 top: Radius.circular(15.0)),
-                            child: Image.network(
-                              'https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg',
-                              fit: BoxFit.cover,
-                              width: double.infinity,
+                            child: Hero(
+                              tag: 'personImage${person.url}',
+                              child: Image.network(
+                                'https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg',
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                              ),
                             ),
                           ),
                         ),
